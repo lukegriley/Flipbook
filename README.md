@@ -1,70 +1,20 @@
-# Getting Started with Create React App
+# Flipbook
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack animation webapp made with Typescript, React, MongoDB, in collaboration with aong9, oanders6,dsaunde2,bmaizes.
 
-## Available Scripts
+## Background
+Making animations has an accessibility problem. To make quality animations this requires professional software which is often bricked by a steep learning curve, expensive paywalls, and hardware demands. We gathered knowledge about this problem through interviews with peer animators, non-animators with interest in doing so, and through reviews of other animation software.
 
-In the project directory, you can run:
+Our project solves this by bridging the accessibility gap in animation with a simple sketch and tracing based interface. Of course, a non-software based solution would be to produce physical flipbooks to be drawn on, but our software allows the fast creation of animation cells and tracing of existing images/video frames. Doing this on a physical flipbook would require a large of paper resources and a backlit tracing surface. 
 
-### `yarn start`
+This app should be a seamless, easy to access application for any users. It should be quickly deployable and with little barrier. The idea is that users will use it whenever they seek to animate something or want to work on an animation project or as a reference to other development projects. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Whiteboard data module (model) → stores the data from user input to the website, ex. a series of drawn frames, by calling on the animation module via API
 
-### `yarn test`
+Whiteboard visual module (view) → visually displays the data from the whiteboard data by calling on the animation module via API. This model will be made accessible through ARIA labels and descriptions, and with keyboard shortcuts like enter = move to the next frame, shift + enter = go to previous frame, shift+tab = hide/show the outline from the previous frame
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Animation module (controller) → stores data from all the frames, putting the relevant frame onto the screen when appropriate and allowing new data to be added. Communicates with both the whiteboard visual and whiteboard data modules.
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Export module (model) → converts the data for a selected animations into either a GIF or mp4 based on the user’s choice. 
