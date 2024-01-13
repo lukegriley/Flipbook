@@ -59,7 +59,3 @@ In creating a visual imagery tool in a short period of time, there was a lot of 
 • `Frontend:` under the root directory, run **npm start**
 • `Backend:` under the src/Server directory, in a separate terminal, run **node index.js**
 
-
-![flip2](https://github.com/lukegriley/Flipbook/assets/70218073/653ee86a-af59-4d3e-b385-900685e1349c)
-
-![flip1](https://github.com/lukegriley/Flipbook/assets/70218073/4c40fc5b-38fe-4613-ae68-2efc703047eb)
